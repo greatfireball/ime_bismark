@@ -24,9 +24,8 @@ RUN apt update && \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
 
-WORKDIR /opt
-
 # Installation of bowtie2
+WORKDIR /opt
 RUN wget -O /tmp/bowtie.zip https://github.com/BenLangmead/bowtie2/releases/download/v2.3.4.1/bowtie2-2.3.4.1-linux-x86_64.zip && \
     unzip /tmp/bowtie.zip && \
     rm /tmp/bowtie.zip && \
@@ -34,6 +33,7 @@ RUN wget -O /tmp/bowtie.zip https://github.com/BenLangmead/bowtie2/releases/down
 ENV PATH=/opt/bowtie2/:${PATH}
 
 # Installation of samtools
+WORKDIR /opt
 RUN wget -O /tmp/samtools.tar.bz2 https://github.com/samtools/samtools/releases/download/1.8/samtools-1.8.tar.bz2 && \
     cd /tmp/ && \
     tar xjf /tmp/samtools.tar.bz2 && \
