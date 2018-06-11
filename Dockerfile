@@ -24,5 +24,7 @@ RUN apt update && \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
 
+WORKDIR /opt
+
 VOLUME /data
 WORKDIR /data
