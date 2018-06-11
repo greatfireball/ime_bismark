@@ -50,6 +50,8 @@ RUN wget -O /tmp/samtools.tar.bz2 https://github.com/samtools/samtools/releases/
     make && \
     make install && \
     rm -rf samtools* && \
+    apt --yes purge \
+	build-essential &&
     apt --yes autoremove \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
