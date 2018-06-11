@@ -16,7 +16,7 @@ LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
 
 RUN apt update && \
     apt --yes install \
-       curl \
+       wget \
        git \
        bzip2 && \
     apt --yes autoremove \
