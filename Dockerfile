@@ -16,12 +16,55 @@ LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
 
 RUN apt update && \
     apt --yes install \
-       curl \
+       wget \
+       unzip \
        git \
        bzip2 && \
     apt --yes autoremove \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
 
+# Installation of bowtie2
+WORKDIR /opt
+RUN wget -O /tmp/bowtie.zip https://github.com/BenLangmead/bowtie2/releases/download/v2.3.4.1/bowtie2-2.3.4.1-linux-x86_64.zip && \
+    unzip /tmp/bowtie.zip && \
+    rm /tmp/bowtie.zip && \
+    ln -s $PWD/bowtie2* bowtie2
+ENV PATH=/opt/bowtie2/:${PATH}
+
+# Installation of samtools
+WORKDIR /opt
+RUN wget -O /tmp/samtools.tar.bz2 https://github.com/samtools/samtools/releases/download/1.8/samtools-1.8.tar.bz2 && \
+    cd /tmp/ && \
+    tar xjf /tmp/samtools.tar.bz2 && \
+    rm /tmp/samtools.tar.bz2 && \
+    ln -s $PWD/samtools* samtools && \
+    apt update && apt install --yes \
+	build-essential \
+	libncurses5-dev \
+	zlib1g-dev \
+	libbz2-dev \
+	liblzma-dev && \
+    cd samtools && \
+    ./configure --prefix=/opt/samtools/ && \
+    make && \
+    make install && \
+    rm -rf samtools* && \
+    apt --yes purge \
+	build-essential && \
+    apt --yes autoremove \
+    && apt autoclean \
+    && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
+ENV PATH=/opt/samtools/bin/:${PATH}
+
+# Installation of bismark
+WORKDIR /opt
+RUN wget -O /tmp/bismark.zip https://github.com/FelixKrueger/Bismark/archive/0.19.1.zip && \
+    unzip /tmp/bismark.zip && \
+    rm /tmp/bismark.zip && \
+    ln -s $PWD/Bismark* bismark
+ENV PATH=/opt/bismark/:${PATH}
+
+# Setup of /data volume and set it as working directory
 VOLUME /data
 WORKDIR /data
