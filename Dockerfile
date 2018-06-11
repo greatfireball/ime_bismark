@@ -26,5 +26,13 @@ RUN apt update && \
 
 WORKDIR /opt
 
+# Installation of bowtie2
+RUN wget -O /tmp/bowtie.zip https://github.com/BenLangmead/bowtie2/releases/download/v2.3.4.1/bowtie2-2.3.4.1-linux-x86_64.zip && \
+    unzip bowtie.zip && \
+    rm bowtie.zip && \
+    mv /tmp/bowtie2* /opt/ && \
+    ln -s $PWD/bowtie2* bowtie2
+ENV PATH=/opt/bowtie2/:${PATH}
+
 VOLUME /data
 WORKDIR /data
