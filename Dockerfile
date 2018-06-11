@@ -19,7 +19,7 @@ RUN apt update && \
        curl \
        git \
        bzip2 && \
-    && apt --yes autoremove \
+    apt --yes autoremove \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
 
