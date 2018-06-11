@@ -40,6 +40,7 @@ RUN wget -O /tmp/samtools.tar.bz2 https://github.com/samtools/samtools/releases/
     rm /tmp/samtools.tar.bz2 && \
     ln -s $PWD/samtools* samtools && \
     apt update && apt install --yes \
+	build-essential \
 	libncurses5-dev \
 	zlib1g-dev \
 	libbz2-dev \
