@@ -39,7 +39,7 @@ RUN wget -O /tmp/samtools.tar.bz2 https://github.com/samtools/samtools/releases/
     tar xjf /tmp/samtools.tar.bz2 && \
     rm /tmp/samtools.tar.bz2 && \
     ln -s $PWD/samtools* samtools && \
-    apt install --yes \
+    apt update && apt install --yes \
 	libncurses5-dev \
 	zlib1g-dev \
 	libbz2-dev \
