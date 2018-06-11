@@ -33,5 +33,25 @@ RUN wget -O /tmp/bowtie.zip https://github.com/BenLangmead/bowtie2/releases/down
     ln -s $PWD/bowtie2* bowtie2
 ENV PATH=/opt/bowtie2/:${PATH}
 
+# Installation of samtools
+RUN wget -O /tmp/samtools.tar.bz2 https://github.com/samtools/samtools/releases/download/1.8/samtools-1.8.tar.bz2 && \
+    cd /tmp/ && \
+    tar xjf /tmp/samtools.tar.bz2 && \
+    rm /tmp/samtools.tar.bz2 && \
+    ln -s $PWD/samtools* samtools && \
+    apt install --yes \
+	libncurses5-dev \
+	zlib1g-dev \
+	libbz2-dev \
+	liblzma-dev && \
+    cd samtools && \
+    ./configure --prefix=/opt/samtools/ && \
+    make && \
+    make install && \
+    apt --yes autoremove \
+    && apt autoclean \
+    && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
+ENV PATH=/opt/samtools/bin/:${PATH}
+
 VOLUME /data
 WORKDIR /data
