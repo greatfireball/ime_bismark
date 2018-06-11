@@ -61,5 +61,6 @@ RUN wget -O /tmp/bismark.zip https://github.com/FelixKrueger/Bismark/archive/0.1
     ln -s $PWD/Bismark* bismark
 ENV PATH=/opt/bismark/:${PATH}
 
+# Setup of /data volume and set it as working directory
 VOLUME /data
 WORKDIR /data
