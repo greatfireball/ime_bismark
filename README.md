@@ -3,14 +3,14 @@ Docker container for bismark
 
 ## Latest release
 
-The latest release is v0.19.1.
+The latest release is v0.19.1.1
 
 ## Docker images
 
-### Based on last Release (v0.19.1):
-- [![](https://images.microbadger.com/badges/image/greatfireball/ime_bismark:v0.19.1.svg)](https://microbadger.com/images/greatfireball/ime_bismark:v0.19.1 "Get your own image badge on microbadger.com")
-- [![](https://images.microbadger.com/badges/version/greatfireball/ime_bismark:v0.19.1.svg)](https://microbadger.com/images/greatfireball/ime_bismark:v0.19.1 "Get your own version badge on microbadger.com")
-- [![](https://images.microbadger.com/badges/commit/greatfireball/ime_bismark:v0.19.1.svg)](https://microbadger.com/images/greatfireball/ime_bismark:v0.19.1 "Get your own commit badge on microbadger.com")
+### Based on last Release (v0.19.1.1):
+- [![](https://images.microbadger.com/badges/image/greatfireball/ime_bismark:v0.19.1.1.svg)](https://microbadger.com/images/greatfireball/ime_bismark:v0.19.1.1 "Get your own image badge on microbadger.com")
+- [![](https://images.microbadger.com/badges/version/greatfireball/ime_bismark:v0.19.1.1.svg)](https://microbadger.com/images/greatfireball/ime_bismark:v0.19.1.1 "Get your own version badge on microbadger.com")
+- [![](https://images.microbadger.com/badges/commit/greatfireball/ime_bismark:v0.19.1.1.svg)](https://microbadger.com/images/greatfireball/ime_bismark:v0.19.1.1 "Get your own commit badge on microbadger.com")
 
 ### Latest image:
 - [![](https://images.microbadger.com/badges/image/greatfireball/ime_bismark.svg)](https://microbadger.com/images/greatfireball/ime_bismark "Get your own image badge on microbadger.com")
@@ -59,5 +59,7 @@ This repository is created and maintained by Frank Förster.
 
 ## Changelog
 
+- `v0.19.1.1` Adding python and parallel to image
+   - bismark v0.19.1
 - `v0.19.1` First official release of the image. It includes
    - bismark v0.19.1
