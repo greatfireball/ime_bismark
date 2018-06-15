@@ -19,6 +19,7 @@ RUN apt update && \
        wget \
        unzip \
        git \
+       python \
        bzip2 && \
     apt --yes autoremove \
     && apt autoclean \
