@@ -61,7 +61,7 @@ ENV PATH=/opt/samtools/bin/:${PATH}
 
 # Installation of bismark
 WORKDIR /opt
-RUN wget -O /tmp/bismark.zip https://github.com/FelixKrueger/Bismark/archive/0.19.1.zip && \
+RUN wget -O /tmp/bismark.zip https://github.com/FelixKrueger/Bismark/archive/v0.15.0.zip && \
     unzip /tmp/bismark.zip && \
     rm /tmp/bismark.zip && \
     ln -s $PWD/Bismark* bismark
